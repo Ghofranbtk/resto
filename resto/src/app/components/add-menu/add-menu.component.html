@@ -1,0 +1,97 @@
+<section class="reservation_part section_padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-5">
+        <div class="section_title">
+          <p>Ajouter un menu</p>
+          <h2>Ajouter un menu</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="reservation_part_inner">
+          <form>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  placeholder="Nom *"
+                  [(ngModel)]="menuData.name"
+                  name="name"
+                  required
+                />
+              </div>
+              <div class="form-group col-md-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="description"
+                  placeholder="Description *"
+                  [(ngModel)]="menuData.description"
+                  name="description"
+                  required
+                />
+              </div>
+              <div class="form-group col-md-6">
+                <input
+                  type="number"
+                  class="form-control"
+                  id="price"
+                  placeholder="Prix *"
+                  [(ngModel)]="menuData.price"
+                  name="price"
+                  required
+                />
+              </div>
+              <div class="form-group col-md-6">
+                <select
+                  class="form-control"
+                  id="category"
+                  [(ngModel)]="menuData.categoryId"
+                  name="category"
+                  required
+                >
+                  <option value="" selected disabled>
+                    Choisir une catégorie *
+                  </option>
+                  <option
+                    *ngFor="let category of categories"
+                    [value]="category.id"
+                  >
+                    {{ category.name }}
+                  </option>
+                </select>
+              </div>
+              <div class="form-group col-md-12">
+                <input
+                  name="img"
+                  type="file"
+                  class="form-control-file"
+                  id="image"
+                  accept="image/*"
+                  (change)="onImageSelected($event)"
+                />
+                <small class="form-text text-muted">Image *</small>
+                <img
+                  id="imagePreview"
+                  src=""
+                  alt="Aperçu de l'image"
+                  style="max-width: 100%; height: auto; display: none"
+                />
+              </div>
+            </div>
+
+            <div class="reserve_btn">
+              <button type="submit" class="btn_4" (click)="onSubmit()">
+                Ajouter le menu
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
